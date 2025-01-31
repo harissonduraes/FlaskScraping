@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Registros</title>
+    <script type="text/javascript">
+        // 15 minutos
+        setTimeout(function () {
+            window.location.reload(1);
+        }, 60 * 15000);
+    </script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>column1</th>
+            <th>column2</th>
+        </tr>
+        {% for registro in registros %}
+        <!-- Se registro for maior que 0, a linha amarela -->
+        <tr class="{% if registro.registro != '0' %}amarelo{% endif %}">
+            <td>{{ registro.a }}</td>
+            <td> {{ registro.b }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
